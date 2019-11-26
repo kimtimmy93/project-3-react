@@ -47,8 +47,9 @@ const NavHeader = props => {
              </List>
                 <div className='divlogo'>
                 <span className='logo'>Loca<span className='logoLA'>LA</span></span><br></br>
-                 <div className="descript"> All Your Local Sports Events</div>
+    
                 </div>
+                <div className="descript"> All Your Local Sports Events</div>
                 
         </Header>
     )

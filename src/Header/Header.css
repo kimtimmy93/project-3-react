@@ -7,7 +7,8 @@
     margin-top: 10px;
     width: 100%;
     height: 10em;
-    background: linear-gradient(45deg, black, red, yellow, orange);
+    /* background: linear-gradient(45deg, black, red, yellow, orange); */
+    background-image: url('https://static1.squarespace.com/static/56ab82d789a60a49487e0dc8/t/5873d5888419c2fab26206e7/1483986321384/SPORTS.jpg?format=1500w');
     max-width: 100%;
     z-index: +1;
 }
@@ -21,7 +22,7 @@
 }
 
 .ui.list>.item a {
-    color:black;
+    color: white;
     font-weight: bold;
 }
 
@@ -63,9 +64,11 @@
     margin-left: 30px;
     font-weight:600;
     font-size:20px;
+    color: white;
 }
 
 .welcome {
     margin-right: 40px;
     padding-top: 5px;
+    color: white;
 }
