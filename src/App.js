@@ -31,7 +31,6 @@ class App extends Component {
       currentUser : user,
       logged: true
     })
-    console.log(user.username)
     if(user.username === 'admin'){
       this.setState({
         user: {
@@ -39,7 +38,6 @@ class App extends Component {
         }
       })
     }
-    console.log(user, '<-----user')
   }
 
   doUpdateEvent = (e, event) => {
@@ -94,14 +92,12 @@ class App extends Component {
         }
     }) 
       const parsedResponse = await loginResponse.json();
-      console.log(parsedResponse, '<-----------parsedRE')
       if(parsedResponse.data.username === "admin"){
         this.setState({
           session: parsedResponse.session.username,
           is_admin: true,
           logged: true
         })
-        console.log(this.state, "<---------------state from app for admin")
        
         localStorage.setItem('user', JSON.stringify(parsedResponse.session))
               this.doUpdateCurrentUser(parsedResponse.data)
@@ -112,7 +108,6 @@ class App extends Component {
                 session: parsedResponse.session.username,
                 logged: true
               })
-              console.log(this.state, "<-------------state from app for user")
               localStorage.setItem('user', JSON.stringify(parsedResponse.session))
               this.doUpdateCurrentUser(parsedResponse.data)
               this.props.history.push('/');  
@@ -153,7 +148,6 @@ class App extends Component {
     }
   }
   viewEvent = async (id) => {
-    console.log('view event')
     try {
       const createdEvents = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/events/${id}`,{
         method: 'GET',
@@ -163,7 +157,6 @@ class App extends Component {
         }
       })
       const parsedCreatedEvents = await createdEvents.json();
-      console.log(parsedCreatedEvents, 'this is view event parsed')
       this.setState({
         event: parsedCreatedEvents.data 
       })
@@ -172,7 +165,6 @@ class App extends Component {
     }
     this.props.history.push(`/events/${id}`)
   }
-
   addEvent = async (e, eventFromForm) => {
     e.preventDefault();
     try {
@@ -190,7 +182,6 @@ class App extends Component {
       console.log(err)
   }
 }
-
 deleteEvent = async (id) => {
   const deleteEventResponse = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/events/${id}`, {
     method:'DELETE',
@@ -225,6 +216,7 @@ closeAndEdit = async e => {
   console.log(err)
 }
 }
+
   render() {
   return ( 
     <main> 
